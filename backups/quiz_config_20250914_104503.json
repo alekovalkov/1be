@@ -1,0 +1,1955 @@
+{
+    "languages": [
+        "et",
+        "en",
+        "ru"
+    ],
+    "booking": {
+        "base": "\/booking\/confirm.php",
+        "default": "#",
+        "combo": {
+            "manicure+pedicure": "mani_pedi"
+        }
+    },
+    "area": {
+        "title": {
+            "ru": "Шаг 0 — Направление",
+            "et": "Samm 0 — Suund",
+            "en": "Step 0 — Category"
+        },
+        "question": {
+            "et": "Mida vajate?",
+            "en": "What do you need?",
+            "ru": "Что вам нужно?"
+        },
+        "question_image": "",
+        "options": {
+            "manicure": {
+                "text": {
+                    "et": "Maniküür",
+                    "en": "Manicure",
+                    "ru": "Маникюр"
+                },
+                "image": "",
+                "hide_image": 0,
+                "desc": {
+                    "et": "",
+                    "en": "",
+                    "ru": ""
+                },
+                "areas": [
+                    "manicure"
+                ]
+            },
+            "pedicure": {
+                "text": {
+                    "et": "Pediküür",
+                    "en": "Pedicure",
+                    "ru": "Педикюр"
+                },
+                "image": "",
+                "hide_image": 0,
+                "desc": {
+                    "et": "",
+                    "en": "",
+                    "ru": ""
+                },
+                "areas": [
+                    "pedicure"
+                ]
+            },
+            "both": {
+                "text": {
+                    "et": "Maniküür + Pediküür",
+                    "en": "Manicure + Pedicure",
+                    "ru": "Маникюр + Педикюр"
+                },
+                "image": "",
+                "hide_image": 0,
+                "desc": {
+                    "et": "",
+                    "en": "",
+                    "ru": ""
+                },
+                "areas": [
+                    "manicure",
+                    "pedicure"
+                ]
+            }
+        }
+    },
+    "manicure": {
+        "oldCover": {
+            "title": {
+                "ru": "Шаг 1 — Маникюр: что на ногтях сейчас",
+                "et": "Samm 1 — Maniküür: mis küüntel on",
+                "en": "Step 1 — Manicure: what’s on nails"
+            },
+            "question": {
+                "et": "Mis on praegu küüntel (maniküür)?",
+                "en": "What’s on the nails (manicure)?",
+                "ru": "Что сейчас на ногтях (маникюр)?"
+            },
+            "options": {
+                "none": {
+                    "text": {
+                        "et": "Pole katet",
+                        "en": "Nothing",
+                        "ru": "Ничего"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 0,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": 0,
+                        "price_max": 0,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "gel_polish": {
+                    "text": {
+                        "et": "Geellakk",
+                        "en": "Gel polish",
+                        "ru": "Гель-лак"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 6,
+                    "price": 6,
+                    "duration_min": 30,
+                    "limit_price_min": 4,
+                    "limit_price_max": 9,
+                    "limit_dur_min": 15,
+                    "limit_dur_max": 45,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 1,
+                    "limits": {
+                        "price_min": 4,
+                        "price_max": 9,
+                        "dur_min": 10,
+                        "dur_max": 45
+                    },
+                    "show_badge_price": 1,
+                    "show_badge_time": 1,
+                    "show_badge_points": 1,
+                    "badge_price_note": {
+                        "et": "Eemaldamine",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "Test2",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "Eemaldamine",
+                        "en": "Removal",
+                        "ru": "Снятие"
+                    }
+                },
+                "hard_gel": {
+                    "text": {
+                        "et": "Kõva geel",
+                        "en": "Hard gel",
+                        "ru": "Твёрдый гель"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 8,
+                    "price": 7,
+                    "duration_min": 30,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": 5,
+                        "price_max": 10,
+                        "dur_min": 10,
+                        "dur_max": 45
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "extensions": {
+                    "text": {
+                        "et": "Küüntepikendused",
+                        "en": "Nail extensions",
+                        "ru": "Нарощенные ногти"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 15,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "service": {
+            "title": {
+                "ru": "Шаг 2 — Маникюр: услуга",
+                "et": "Samm 2 — Maniküür: teenus",
+                "en": "Step 2 — Manicure: service"
+            },
+            "question": {
+                "et": "Valige teenus (maniküür):",
+                "en": "Choose a service (manicure):",
+                "ru": "Выберите услугу (маникюр):"
+            },
+            "options": {
+                "gelpolish_removal": {
+                    "text": {
+                        "et": "Tavalise lakki või geellakki eemaldamine ilma maniküürita",
+                        "en": "Regular polish or gel polish removal without manicure",
+                        "ru": "Удаление обычного лака или гель-лака без маникюра"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "slug": "gelpolish-removal",
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "staff_price_min": "",
+                    "staff_price_max": "",
+                    "staff_dur_min": "",
+                    "staff_dur_max": "",
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "classic_mani": {
+                    "text": {
+                        "et": "Klassikaline maniküür",
+                        "en": "Classic manicure",
+                        "ru": "Классический маникюр"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "slug": "klassikaline-manikuur",
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "staff_price_min": "",
+                    "staff_price_max": "",
+                    "staff_dur_min": "",
+                    "staff_dur_max": "",
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "manicure_cover": {
+                    "text": {
+                        "et": "Maniküür geellakiga",
+                        "en": "Manicure with gel polish",
+                        "ru": "Маникюр с покрытием"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "slug": "manikuur-geellakiga",
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "staff_price_min": "",
+                    "staff_price_max": "",
+                    "staff_dur_min": "",
+                    "staff_dur_max": "",
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "extensions_new": {
+                    "text": {
+                        "et": "Uued küüntepikendused",
+                        "en": "New nail extensions",
+                        "ru": "Наращивание с нуля"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "slug": "uued-kuuntepikendused",
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "staff_price_min": "",
+                    "staff_price_max": "",
+                    "staff_dur_min": "",
+                    "staff_dur_max": "",
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "extensions_correction": {
+                    "text": {
+                        "et": "Küüntepikenduste hooldus",
+                        "en": "Extensions refill",
+                        "ru": "Коррекция наращенных"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "slug": "kuuntepikenduste-hooldus",
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "staff_price_min": "",
+                    "staff_price_max": "",
+                    "staff_dur_min": "",
+                    "staff_dur_max": "",
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": "",
+            "show_badge_price": 0,
+            "show_badge_time": 0,
+            "show_badge_points": 0
+        },
+        "cover": {
+            "title": {
+                "ru": "Шаг 3 — Маникюр: покрытие",
+                "et": "Samm 3 — Maniküür: kate",
+                "en": "Step 3 — Manicure: cover"
+            },
+            "question": {
+                "et": "Millist katet soovite?",
+                "en": "Which cover would you like?",
+                "ru": "Какое покрытие хотите?"
+            },
+            "options": {
+                "gel_polish": {
+                    "text": {
+                        "et": "Geellakk",
+                        "en": "Gel polish",
+                        "ru": "Гель-лак"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "builder": {
+                    "text": {
+                        "et": "Küüne tugevdamine (builder)",
+                        "en": "Nail strengthening (builder)",
+                        "ru": "Выравнивание\/билдер"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "length": {
+            "title": {
+                "ru": "Шаг 4 — Маникюр: длина",
+                "et": "Samm 4 — Maniküür: pikkus",
+                "en": "Step 4 — Manicure: length"
+            },
+            "question": {
+                "et": "Valige pikkus (pikendustele):",
+                "en": "Choose length (extensions)",
+                "ru": "Выберите длину (для наращивания):"
+            },
+            "options": {
+                "short": {
+                    "text": {
+                        "et": "Lühike",
+                        "en": "Short",
+                        "ru": "Короткая"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price_add": 0,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "medium": {
+                    "text": {
+                        "et": "Keskmine",
+                        "en": "Medium",
+                        "ru": "Средняя"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price_add": 10,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "long": {
+                    "text": {
+                        "et": "Pikk",
+                        "en": "Long",
+                        "ru": "Длинная"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price_add": 20,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "design": {
+            "title": {
+                "ru": "Шаг 5 — Маникюр: дизайн",
+                "et": "Samm 5 — Maniküür: disain",
+                "en": "Step 5 — Manicure: design"
+            },
+            "question": {
+                "et": "Lisame disaini?",
+                "en": "Add design?",
+                "ru": "Добавим дизайн?"
+            },
+            "options": {
+                "no_design": {
+                    "text": {
+                        "et": "Disainita",
+                        "en": "No design",
+                        "ru": "Без дизайна"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "simple": {
+                    "text": {
+                        "et": "Lihtne disain",
+                        "en": "Simple design",
+                        "ru": "Простой дизайн"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "complex": {
+                    "text": {
+                        "et": "Keerukas disain",
+                        "en": "Complex design",
+                        "ru": "Сложный дизайн"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "spa": {
+            "title": {
+                "ru": "Шаг 6 — Маникюр: SPA",
+                "et": "Samm 6 — Maniküür: SPA",
+                "en": "Step 6 — Manicure: SPA"
+            },
+            "question": {
+                "et": "Lisada SPA-protseduur?",
+                "en": "Add SPA procedure?",
+                "ru": "Добавить SPA-процедуру?"
+            },
+            "options": {
+                "no_spa": {
+                    "text": {
+                        "et": "Ilma SPA-ta",
+                        "en": "No SPA",
+                        "ru": "Без SPA"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "yes_spa": {
+                    "text": {
+                        "et": "SPA + massaaž",
+                        "en": "SPA + massage",
+                        "ru": "SPA + массаж"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "steps": [
+            {
+                "key": "oldCover",
+                "enabled": 1,
+                "order": 1,
+                "show_if_service_in": [],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "service",
+                "enabled": 1,
+                "order": 2,
+                "show_if_service_in": [],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "cover",
+                "enabled": 1,
+                "order": 3,
+                "show_if_service_in": [
+                    "manicure_cover"
+                ],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "length",
+                "enabled": 1,
+                "order": 4,
+                "show_if_service_in": [
+                    "extensions_new",
+                    "extensions_correction"
+                ],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "design",
+                "enabled": 1,
+                "order": 5,
+                "show_if_service_in": [],
+                "hide_if_service_in": [
+                    "classic_mani"
+                ]
+            },
+            {
+                "key": "spa",
+                "enabled": 1,
+                "order": 6,
+                "show_if_service_in": [],
+                "hide_if_service_in": []
+            }
+        ]
+    },
+    "pedicure": {
+        "oldCover": {
+            "title": {
+                "ru": "Шаг 1 — Педикюр: что на ногтях сейчас",
+                "et": "Samm 1 — Pediküür: mis küüntel on",
+                "en": "Step 1 — Pedicure: what’s on nails"
+            },
+            "question": {
+                "et": "Mis on praegu küüntel (pediküür)?",
+                "en": "What’s on the nails (pedicure)?",
+                "ru": "Что сейчас на ногтях (педикюр)?"
+            },
+            "options": {
+                "none": {
+                    "text": {
+                        "et": "Pole katet",
+                        "en": "Nothing",
+                        "ru": "Ничего"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 0,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "gel_polish": {
+                    "text": {
+                        "et": "Geellakk",
+                        "en": "Gel polish",
+                        "ru": "Гель-лак"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 7,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "hard_gel": {
+                    "text": {
+                        "et": "Kõva geel",
+                        "en": "Hard gel",
+                        "ru": "Твёрдый гель"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 9,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "extensions": {
+                    "text": {
+                        "et": "Küüntepikendused",
+                        "en": "Nail extensions",
+                        "ru": "Нарощенные ногти"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "removal_cost": 18,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "service": {
+            "title": {
+                "ru": "Шаг 2 — Педикюр: услуга",
+                "et": "Samm 2 — Pediküür: teenus",
+                "en": "Step 2 — Pedicure: service"
+            },
+            "question": {
+                "et": "Valige teenus (pediküür):",
+                "en": "Choose a service (pedicure):",
+                "ru": "Выберите услугу (педикюр):"
+            },
+            "options": {
+                "classic_pedi": {
+                    "text": {
+                        "et": "Klassikaline pediküür",
+                        "en": "Classic pedicure",
+                        "ru": "Классический педикюр"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "slug": "klassikaline-pedikuur",
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "staff_price_min": "",
+                    "staff_price_max": "",
+                    "staff_dur_min": "",
+                    "staff_dur_max": "",
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "pedicure_cover": {
+                    "text": {
+                        "et": "Pediküür geellakiga",
+                        "en": "Pedicure with gel polish",
+                        "ru": "Педикюр с покрытием"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "slug": "pedikuur-geellakiga",
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "staff_price_min": "",
+                    "staff_price_max": "",
+                    "staff_dur_min": "",
+                    "staff_dur_max": "",
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": "",
+            "show_badge_price": 0,
+            "show_badge_time": 0,
+            "show_badge_points": 0
+        },
+        "cover": {
+            "title": {
+                "ru": "Шаг 3 — Педикюр: покрытие",
+                "et": "Samm 3 — Pediküür: kate",
+                "en": "Step 3 — Pedicure: cover"
+            },
+            "question": {
+                "et": "Millist katet soovite (pediküür)?",
+                "en": "Which cover (pedicure)?",
+                "ru": "Какое покрытие хотите (педикюр)?"
+            },
+            "options": {
+                "gel_polish": {
+                    "text": {
+                        "et": "Geellakk",
+                        "en": "Gel polish",
+                        "ru": "Гель-лак"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "length": {
+            "title": {
+                "ru": "Шаг 4 — Педикюр: длина",
+                "et": "Samm 4 — Pediküür: pikkus",
+                "en": "Step 4 — Pedicure: length"
+            },
+            "question": {
+                "et": "Pikkus (kui asjakohane):",
+                "en": "Length (if applicable)",
+                "ru": "Длина (если актуально):"
+            },
+            "options": {
+                "std": {
+                    "text": {
+                        "et": "Standardne",
+                        "en": "Standard",
+                        "ru": "Стандартная"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price_add": 0,
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "design": {
+            "title": {
+                "ru": "Шаг 5 — Педикюр: дизайн",
+                "et": "Samm 5 — Pediküür: disain",
+                "en": "Step 5 — Pedicure: design"
+            },
+            "question": {
+                "et": "Kas lisame disaini?",
+                "en": "Add design for pedicure?",
+                "ru": "Дизайн для педикюра?"
+            },
+            "options": {
+                "no_design": {
+                    "text": {
+                        "et": "Disainita",
+                        "en": "No design",
+                        "ru": "Без дизайна"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "simple": {
+                    "text": {
+                        "et": "Lihtne disain",
+                        "en": "Simple design",
+                        "ru": "Простой дизайн"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "spa": {
+            "title": {
+                "ru": "Шаг 6 — Педикюр: SPA",
+                "et": "Samm 6 — Pediküür: SPA",
+                "en": "Step 6 — Pedicure: SPA"
+            },
+            "question": {
+                "et": "Lisada SPA (pediküür)?",
+                "en": "Add SPA (pedicure)?",
+                "ru": "Добавить SPA (педикюр)?"
+            },
+            "options": {
+                "no_spa": {
+                    "text": {
+                        "et": "Ilma SPA-ta",
+                        "en": "No SPA",
+                        "ru": "Без SPA"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                },
+                "yes_spa": {
+                    "text": {
+                        "et": "SPA + massaaž",
+                        "en": "SPA + massage",
+                        "ru": "SPA + массаж"
+                    },
+                    "image": "",
+                    "hide_image": 0,
+                    "desc": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "price": 0,
+                    "duration_min": 0,
+                    "limit_price_min": null,
+                    "limit_price_max": null,
+                    "limit_dur_min": 0,
+                    "limit_dur_max": 0,
+                    "badge_show_price": 0,
+                    "badge_show_time": 0,
+                    "badge_show_points": 0,
+                    "points": 0,
+                    "hide_price": 0,
+                    "limits": {
+                        "price_min": null,
+                        "price_max": null,
+                        "dur_min": 0,
+                        "dur_max": 0
+                    },
+                    "show_badge_price": 0,
+                    "show_badge_time": 0,
+                    "show_badge_points": 0,
+                    "badge_price_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_time_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    },
+                    "badge_points_note": {
+                        "et": "",
+                        "en": "",
+                        "ru": ""
+                    }
+                }
+            },
+            "question_image": ""
+        },
+        "steps": [
+            {
+                "key": "oldCover",
+                "enabled": 1,
+                "order": 1,
+                "show_if_service_in": [],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "service",
+                "enabled": 1,
+                "order": 2,
+                "show_if_service_in": [],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "cover",
+                "enabled": 1,
+                "order": 3,
+                "show_if_service_in": [
+                    "pedicure_cover"
+                ],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "length",
+                "enabled": 1,
+                "order": 4,
+                "show_if_service_in": [
+                    "extensions_new",
+                    "extensions_correction"
+                ],
+                "hide_if_service_in": []
+            },
+            {
+                "key": "design",
+                "enabled": 1,
+                "order": 5,
+                "show_if_service_in": [],
+                "hide_if_service_in": [
+                    "classic_pedi"
+                ]
+            },
+            {
+                "key": "spa",
+                "enabled": 1,
+                "order": 6,
+                "show_if_service_in": [],
+                "hide_if_service_in": []
+            }
+        ]
+    },
+    "areas": {
+        "manicure": {
+            "title": {
+                "et": "MANIKÜÜR",
+                "en": "MANICURE",
+                "ru": "MANICURE"
+            }
+        },
+        "pedicure": {
+            "title": {
+                "et": "PEDIKÜÜR",
+                "en": "PEDICURE",
+                "ru": "PEDICURE"
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+:root{
+  --bg:#fff; --card:#fff; --text:#222;
+  --accent:#f3b6c8; --accent-strong:#ea8fad; --radius:16px;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:40px;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+#wrap{max-width:840px;margin:0 auto}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.progress{font-size:14px;opacity:.7}
+.actions a,.actions button{margin-left:8px}
+
+/* card */
+.card{
+  background:var(--card); border-radius:var(--radius); padding:24px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06); border:1px solid #f3e4ea;
+}
+h1{font-size:26px;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+
+/* option */
+.option{
+  position:relative; display:block; text-align:center; padding:12px 10px;
+  border-radius:999px; background:#fbe0ea; border:2px solid transparent;
+  cursor:pointer; transition:.15s; line-height:1.25;
+}
+.option:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+.option input{ display:none }
+
+/* image separate from button */
+.option__media{display:flex;justify-content:center;margin:8px 0 10px}
+.option__media img.option-img{
+  width:clamp(120px, 36vw, 220px); height:clamp(120px, 36vw, 220px);
+  object-fit:cover; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+
+/* the pink "pill" same size */
+.option .chip{
+  display:block; width:100%; background:#fbe0ea; border-radius:999px;
+  padding:12px 16px; text-align:center; border:2px solid transparent; transition:.15s;
+}
+.option:hover .chip{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+.option .title{ font-weight:700; }
+.price{ margin-top:6px; font-size:14px; opacity:.8 }
+
+/* selected */
+.option.selected,
+.option:has(input:checked),
+.option:focus-within{
+  border-color: var(--accent-strong);
+  box-shadow:0 0 0 3px rgba(234,143,173,.25);
+}
+
+/* buttons */
+.btn{appearance:none;border:0;border-radius:10px;padding:9px 12px;background:#eee;cursor:pointer}
+.btn.primary{background:var(--accent);color:#222;font-weight:bold}
+
+/* summary */
+.badge{display:inline-block;background:#ffe7f0;padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:8px}
+.summary-box{background:#fff;border-radius:12px;padding:12px;margin-top:10px;border:1px dashed #f2b1c5}
+.total{font-size:20px;font-weight:bold;margin-top:12px}
+.book{display:inline-block;margin-top:12px}
+a.link{display:inline-block;background:var(--accent-strong);color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px}
+.footer-note{font-size:12px;opacity:.7;margin-top:10px}
+.info-link{display:inline-block;margin-top:6px;font-size:14px;text-decoration:underline}
+
+/* modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.6);z-index:1000}
+.modal.open{display:flex}
+.modal__dialog{background:#fff;border-radius:16px;max-width:620px;width:100%;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.modal__title{margin:0 0 10px;font-size:20px;font-weight:700}
+.modal__body{font-size:16px;line-height:1.5}
+.modal__actions{margin-top:16px;text-align:left}
+.modal__close{background:#fbe0ea;border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+
+/* mobile */
+@media(max-width:480px){
+  body{padding:18px}
+  .card{padding:18px}
+  h1{font-size:22px}
+  .option__media img.option-img{ width:120px; height:120px; }
+}
+/* summary */
+.summary-inline{
+  margin-top:16px;
+  border:1px dashed #f5a0b2;
+  border-radius:12px;
+  padding:12px 14px;
+  background:#fff6f8;
+}
+.summary-inline .summary-title{
+  font-weight:700;
+  margin-bottom:6px;
+}
+.summary-list{margin:0; padding-left:18px}
+.summary-list li{margin:4px 0}
+
+/* mobile/desktop visibility */
+.desktop-only{display:block}
+.mobile-only{display:none}
+@media (max-width: 640px){
+  .desktop-only{display:none}
+  .mobile-only{display:inline-block}
+}
+
+/* floating action button for mobile summary */
+.summary-fab{
+  position:fixed; right:12px; bottom:12px;
+  z-index:1000;
+  border:0; border-radius:999px;
+  padding:10px 14px;
+  background:#ff4f86; color:#fff; font-weight:600;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+}

@@ -1,0 +1,184 @@
+{
+  "languages": ["ru", "et", "en"],
+  "booking": {
+    "default": "/booking/index.php"
+  },
+  "area": {
+    "title": "Шаг 0 — Направление",
+    "question": "Что вам нужно?",
+    "question_image": "",
+    "options": {
+      "manicure": {
+        "text": "Маникюр",
+        "image": "",
+        "hide_image": 0,
+        "desc": "",
+        "areas": ["manicure"]
+      },
+      "pedicure": {
+        "text": "Педикюр",
+        "image": "",
+        "hide_image": 0,
+        "desc": "",
+        "areas": ["pedicure"]
+      },
+      "both": {
+        "text": "Маникюр + Педикюр",
+        "image": "",
+        "hide_image": 0,
+        "desc": "",
+        "areas": ["manicure", "pedicure"]
+      },
+      "test": {
+        "text": "Test",
+        "image": "",
+        "hide_image": 0,
+        "desc": "",
+        "areas": ["test"]
+      }
+    }
+  },
+  "manicure": {
+    "oldCover": {
+      "title": "Шаг 1 — Маникюр: что на ногтях сейчас",
+      "question": "Что сейчас на ногтях (маникюр)?",
+      "options": {
+        "none": { "text": "Ничего", "image": "", "hide_image": 0, "desc": "", "removal_cost": 0 },
+        "gel_polish": { "text": "Гель-лак", "image": "", "hide_image": 0, "desc": "", "removal_cost": 6 },
+        "hard_gel": { "text": "Твёрдый гель", "image": "", "hide_image": 0, "desc": "", "removal_cost": 8 },
+        "extensions": { "text": "Нарощенные ногти", "image": "", "hide_image": 0, "desc": "", "removal_cost": 15 }
+      }
+    },
+    "service": {
+      "title": "Шаг 2 — Маникюр: услуга",
+      "question": "Выберите услугу (маникюр):",
+      "options": {
+        "classic":               { "text": "Классический маникюр",   "image": "", "hide_image": 0, "desc": "", "base_price": 19, "booking_url": "", "price": 19, "points": "", "hide_price": 0 },
+        "manicure_cover":        { "text": "Маникюр с покрытием",    "image": "", "hide_image": 0, "desc": "", "base_price": 10, "booking_url": "", "price": 10, "points": "", "hide_price": 0 },
+        "extensions_new":        { "text": "Наращивание с нуля",     "image": "", "hide_image": 0, "desc": "", "base_price": 45, "booking_url": "", "price": 45, "points": "", "hide_price": 0 },
+        "extensions_correction": { "text": "Коррекция наращенных",   "image": "", "hide_image": 0, "desc": "", "base_price": 35, "booking_url": "", "price": 35, "points": "", "hide_price": 0 }
+      }
+    },
+    "cover": {
+      "title": "Шаг 3 — Маникюр: покрытие",
+      "question": "Какое покрытие хотите?",
+      "options": {
+        "gel_polish": { "text": "Гель-лак", "image": "", "hide_image": 0, "desc": "", "price": 9, "points": "", "hide_price": 0 },
+        "builder":    { "text": "Выравнивание/билдер", "image": "", "hide_image": 0, "desc": "", "price": 12, "points": "", "hide_price": 0 }
+      }
+    },
+    "length": {
+      "title": "Шаг 4 — Маникюр: длина",
+      "question": "Выберите длину (для наращивания):",
+      "options": {
+        "short":  { "text": "Короткая", "image": "", "hide_image": 0, "desc": "", "price_add": 0,  "price": 0,  "points": "", "hide_price": 0 },
+        "medium": { "text": "Средняя",  "image": "", "hide_image": 0, "desc": "", "price_add": 10, "price": 10, "points": "", "hide_price": 0 },
+        "long":   { "text": "Длинная",  "image": "", "hide_image": 0, "desc": "", "price_add": 20, "price": 20, "points": "", "hide_price": 0 }
+      }
+    },
+    "design": {
+      "title": "Шаг 5 — Маникюр: дизайн",
+      "question": "Добавим дизайн?",
+      "options": {
+        "no_design": { "text": "Без дизайна", "image": "", "hide_image": 0, "desc": "", "price": 0,  "points": "", "hide_price": 0 },
+        "simple":    { "text": "Простой дизайн", "image": "", "hide_image": 0, "desc": "", "price": 6,  "points": "", "hide_price": 0 },
+        "complex":   { "text": "Сложный дизайн", "image": "", "hide_image": 0, "desc": "", "price": 12, "points": "", "hide_price": 0 }
+      }
+    },
+    "spa": {
+      "title": "Шаг 6 — Маникюр: SPA",
+      "question": "Добавить SPA-процедуру?",
+      "options": {
+        "no_spa":  { "text": "Без SPA",     "image": "", "hide_image": 0, "desc": "", "price": 0, "points": "", "hide_price": 0 },
+        "yes_spa": { "text": "SPA + массаж","image": "", "hide_image": 0, "desc": "", "price": 6, "points": "", "hide_price": 0 }
+      }
+    },
+    "steps": [
+      { "key": "oldCover", "enabled": 1, "order": 1, "show_if_service_in": [], "hide_if_service_in": [] },
+      { "key": "service",  "enabled": 1, "order": 2, "show_if_service_in": [], "hide_if_service_in": [] },
+      { "key": "cover",    "enabled": 1, "order": 3, "show_if_service_in": ["manicure_cover"], "hide_if_service_in": [] },
+      { "key": "length",   "enabled": 1, "order": 4, "show_if_service_in": ["extensions_new","extensions_correction"], "hide_if_service_in": [] },
+      { "key": "design",   "enabled": 1, "order": 5, "show_if_service_in": [], "hide_if_service_in": ["classic"] },
+      { "key": "spa",      "enabled": 1, "order": 6, "show_if_service_in": [], "hide_if_service_in": [] }
+    ]
+  },
+  "pedicure": {
+    "oldCover": {
+      "title": "Шаг 1 — Педикюр: что на ногтях сейчас",
+      "question": "Что сейчас на ногтях (педикюр)?",
+      "options": {
+        "none":        { "text": "Ничего",              "image": "", "hide_image": 0, "desc": "", "removal_cost": 0 },
+        "gel_polish":  { "text": "Гель-лак",            "image": "", "hide_image": 0, "desc": "", "removal_cost": 7 },
+        "hard_gel":    { "text": "Твёрдый гель",        "image": "", "hide_image": 0, "desc": "", "removal_cost": 9 },
+        "extensions":  { "text": "Нарощенные ногти",    "image": "", "hide_image": 0, "desc": "", "removal_cost": 18 }
+      }
+    },
+    "service": {
+      "title": "Шаг 2 — Педикюр: услуга",
+      "question": "Выберите услугу (педикюр):",
+      "options": {
+        "classic":         { "text": "Классический педикюр", "image": "", "hide_image": 0, "desc": "", "base_price": 25, "booking_url": "", "price": 25, "points": "", "hide_price": 0 },
+        "pedicure_cover":  { "text": "Педикюр с покрытием",  "image": "", "hide_image": 0, "desc": "", "base_price": 12, "booking_url": "", "price": 12, "points": "", "hide_price": 0 }
+      }
+    },
+    "cover": {
+      "title": "Шаг 3 — Педикюр: покрытие",
+      "question": "Какое покрытие хотите (педикюр)?",
+      "options": {
+        "gel_polish": { "text": "Гель-лак", "image": "", "hide_image": 0, "desc": "", "price": 10, "points": "", "hide_price": 0 }
+      }
+    },
+    "length": {
+      "title": "Шаг 4 — Педикюр: длина",
+      "question": "Длина (если актуально):",
+      "options": {
+        "std": { "text": "Стандартная", "image": "", "hide_image": 0, "desc": "", "price_add": 0, "price": 0, "points": "", "hide_price": 0 }
+      }
+    },
+    "design": {
+      "title": "Шаг 5 — Педикюр: дизайн",
+      "question": "Дизайн для педикюра?",
+      "options": {
+        "no_design": { "text": "Без дизайна", "image": "", "hide_image": 0, "desc": "", "price": 0, "points": "", "hide_price": 0 },
+        "simple":    { "text": "Простой дизайн", "image": "", "hide_image": 0, "desc": "", "price": 5, "points": "", "hide_price": 0 }
+      }
+    },
+    "spa": {
+      "title": "Шаг 6 — Педикюр: SPA",
+      "question": "Добавить SPA (педикюр)?",
+      "options": {
+        "no_spa":  { "text": "Без SPA",     "image": "", "hide_image": 0, "desc": "", "price": 0, "points": "", "hide_price": 0 },
+        "yes_spa": { "text": "SPA + массаж","image": "", "hide_image": 0, "desc": "", "price": 7, "points": "", "hide_price": 0 }
+      }
+    },
+    "steps": [
+      { "key": "oldCover", "enabled": 1, "order": 1, "show_if_service_in": [], "hide_if_service_in": [] },
+      { "key": "service",  "enabled": 1, "order": 2, "show_if_service_in": [], "hide_if_service_in": [] },
+      { "key": "cover",    "enabled": 1, "order": 3, "show_if_service_in": ["pedicure_cover"], "hide_if_service_in": [] },
+      { "key": "length",   "enabled": 1, "order": 4, "show_if_service_in": ["extensions_new","extensions_correction"], "hide_if_service_in": [] },
+      { "key": "design",   "enabled": 1, "order": 5, "show_if_service_in": [], "hide_if_service_in": ["classic"] },
+      { "key": "spa",      "enabled": 1, "order": 6, "show_if_service_in": [], "hide_if_service_in": [] }
+    ]
+  },
+  "areas": {
+    "manicure": { "title": "MANICURE" },
+    "pedicure": { "title": "PEDICURE" },
+    "test": { "title": "test" }
+  },
+  "test": {
+    "steps": [
+      { "key": "service", "enabled": 1, "order": 1, "show_if_service_in": [], "hide_if_service_in": [] }
+    ],
+    "service": {
+      "question": "test",
+      "question_image": "",
+      "options": {
+        "test": { "text": "test", "image": "", "hide_image": 0, "desc": "", "price": 5, "points": "", "hide_price": 0, "booking_url": "" }
+      }
+    },
+    "cover": { "question": "", "question_image": "", "options": [] },
+    "length": { "question": "", "question_image": "", "options": [] },
+    "design": { "question": "", "question_image": "", "options": [] },
+    "spa": { "question": "", "question_image": "", "options": [] }
+  }
+}

@@ -1,0 +1,239 @@
+<?php
+declare(strict_types=1);
+require __DIR__ . '/_bootstrap.php';
+
+$u  = require_staff_auth();
+$db = db();
+
+/* --- tz мастера --- */
+$tz = 'Europe/Tallinn';
+$stz = $db->prepare("SELECT COALESCE(tz,'Europe/Tallinn') FROM staff WHERE id=:sid");
+$stz->execute([':sid'=>$u['staff_id']]);
+$tzDb = $stz->fetchColumn();
+if ($tzDb) $tz = (string)$tzDb;
+$tzObj = new DateTimeZone($tz);
+
+/* --- выбранная дата --- */
+$paramD = isset($_GET['d']) && preg_match('~^\d{4}-\d{2}-\d{2}$~', (string)$_GET['d']) ? (string)$_GET['d'] : null;
+$day    = $paramD ?: (new DateTimeImmutable('today', $tzObj))->format('Y-m-d');
+
+/* --- helpers: подобрать существующую колонку --- */
+function pick_col(PDO $pdo, string $table, array $cands): ?string {
+  foreach ($cands as $c) {
+    $st=$pdo->query("SHOW COLUMNS FROM `$table` LIKE ".$pdo->quote($c));
+    if ($st->fetch()) return $c;
+  }
+  return null;
+}
+
+/* ---- appointments: имена колонок ---- */
+$startCol = pick_col($db,'appointments',['starts','start_dt','start_at','start','begin_at']) ?: 'starts';
+$endCol   = pick_col($db,'appointments',['ends','end_dt','end_at','end','finish_at'])      ?: 'ends';
+$colStatus= pick_col($db,'appointments',['status','state']) ?: 'status';
+
+/* клиентские поля / JOIN */
+$colCName   = pick_col($db,'appointments',['client_name','customer_name','name','client']);
+$colCPhone  = pick_col($db,'appointments',['client_phone','phone','customer_phone','tel']);
+$colCEmail  = pick_col($db,'appointments',['client_email','email','customer_email','mail']);
+$colComment = pick_col($db,'appointments',['comment','notes','note','remarks']);
+$colSvc     = pick_col($db,'appointments',['service_title','service','service_name','svc_title']);
+$colPrice   = pick_col($db,'appointments',['price_eur','price','amount_eur','amount']);
+
+$needJoinClients = false;
+$clientIdCol = null;
+if (!$colCName && !$colCPhone && !$colCEmail) {
+  $clientIdCol = pick_col($db,'appointments',['client_id','customer_id','clientID','customerID','client','customer']);
+  if ($clientIdCol) $needJoinClients = true;
+}
+
+$clientsNameCol  = $clientsPhoneCol = $clientsEmailCol = null;
+if ($needJoinClients) {
+  $clientsNameCol  = pick_col($db,'clients',['name','full_name','client_name']);
+  $clientsPhoneCol = pick_col($db,'clients',['phone','tel','client_phone']);
+  $clientsEmailCol = pick_col($db,'clients',['email','mail','client_email']);
+}
+
+/* ---- SELECT ---- */
+$select = "SELECT a.id, a.$startCol AS starts, a.$endCol AS ends, a.$colStatus AS status";
+$select .= $needJoinClients
+  ? ( ($clientsNameCol  ? ", c.$clientsNameCol  AS client_name"  : ", NULL AS client_name")
+    .($clientsPhoneCol ? ", c.$clientsPhoneCol AS client_phone" : ", NULL AS client_phone")
+    .($clientsEmailCol ? ", c.$clientsEmailCol AS client_email" : ", NULL AS client_email") )
+  : ( ($colCName  ? ", a.$colCName  AS client_name"  : ", NULL AS client_name")
+    .($colCPhone ? ", a.$colCPhone AS client_phone" : ", NULL AS client_phone")
+    .($colCEmail ? ", a.$colCEmail AS client_email" : ", NULL AS client_email") );
+
+$select .= $colComment ? ", a.$colComment AS comment"       : ", NULL AS comment";
+$select .= $colSvc     ? ", a.$colSvc     AS service_title" : ", NULL AS service_title";
+$select .= $colPrice   ? ", a.$colPrice   AS price_eur"     : ", NULL AS price_eur";
+$select .= " FROM appointments a";
+if ($needJoinClients) $select .= " LEFT JOIN clients c ON c.id = a.$clientIdCol";
+$select .= " WHERE a.staff_id=:sid AND DATE(a.$startCol)=:d ORDER BY a.$startCol";
+
+$st = $db->prepare($select);
+$st->execute([':sid'=>$u['staff_id'], ':d'=>$day]);
+$rows = $st->fetchAll(PDO::FETCH_ASSOC);
+
+/* сейчас в таймзоне мастера */
+$now = new DateTimeImmutable('now', $tzObj);
+
+/* соседние даты */
+$dayObj = new DateTimeImmutable($day, $tzObj);
+$prev = $dayObj->modify('-1 day')->format('Y-m-d');
+$next = $dayObj->modify('+1 day')->format('Y-m-d');
+
+function h(string $s): string { return htmlspecialchars($s, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8'); }
+?>
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>ЛК мастера — расписание</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f8fafc;margin:0;color:#0f172a}
+    .top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#fff;border-bottom:1px solid #e5e7eb;gap:12px}
+    .left{display:flex;align-items:center;gap:8px}
+    .date-nav{display:flex;align-items:center;gap:8px}
+    .btn, a.btn{display:inline-block;background:#111827;color:#fff;text-decoration:none;border:none;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer}
+    .btn.sec{background:#e5e7eb;color:#111827}
+    .btn.danger{background:#b91c1c}
+    .btn[disabled]{opacity:.5;cursor:not-allowed}
+    input[type=date]{padding:8px 10px;border:1px solid #e5e7eb;border-radius:10px}
+    .wrap{max-width:1000px;margin:0 auto;padding:16px}
+
+    /* ВАЖНО: убрали overflow:hidden, чтобы на мобилках работал горизонтальный скролл */
+    .table{background:#fff;border:1px solid #e5e7eb;border-radius:12px;/* overflow:hidden */ }
+
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px 12px;border-bottom:1px solid #e5e7eb;text-align:left;font-size:14px;vertical-align:top}
+    th{background:#f1f5f9}
+    .status{padding:2px 8px;border-radius:999px;font-size:12px;border:1px solid #cbd5e1;display:inline-block}
+    .muted{color:#64748b}
+    .countdown{font-size:12px;color:#64748b;margin-top:4px}
+
+    /* Мобильный фикс: горизонтальный скролл и минимальная ширина таблицы,
+       чтобы колонка «Действия» с кнопкой «Отменить» не пропадала */
+    @media (max-width:640px){
+      .table{ overflow-x:auto; }
+      table{ min-width: 760px; }
+      th,td{ white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="left">
+      <div class="date-nav">
+        <a class="btn sec" href="?d=<?=$prev?>">‹</a>
+        <form id="dForm" method="get" style="display:inline">
+          <input type="date" name="d" value="<?=h($day)?>" id="dInput">
+        </form>
+        <a class="btn sec" href="?d=<?=$next?>">›</a>
+      </div>
+    </div>
+    <div style="margin-left:auto">
+      <a class="btn danger" href="/staff/logout.php">Выйти</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h1 style="margin:0 0 12px">Мои записи на <?=h($day)?> (TZ: <?=h($tz)?>)</h1>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Время</th>
+            <th>Клиент</th>
+            <th>Услуга</th>
+            <th>Цена</th>
+            <th>Статус</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php if (!$rows): ?>
+          <tr><td colspan="6" class="muted">Записей нет.</td></tr>
+        <?php else: foreach ($rows as $r):
+          $startsDt = new DateTimeImmutable($r['starts'], $tzObj);
+          $endsDt   = new DateTimeImmutable($r['ends'],   $tzObj);
+          $starts   = $startsDt->format('H:i');
+          $ends     = $endsDt->format('H:i');
+          $status   = $r['status'] ?? 'pending';
+
+          // кнопка "Отменить" — только через 15 мин после начала
+          $allowAt  = $startsDt->modify('+15 minutes');
+          $canCancel= $now >= $allowAt;
+          ?>
+          <tr data-id="<?= (int)$r['id'] ?>"
+              data-allowts="<?=$allowAt->getTimestamp()?>"
+              data-nowts="<?=$now->getTimestamp()?>">
+            <td><b><?=h($starts)?>–<?=h($ends)?></b></td>
+            <td>
+              <div><?= h($r['client_name'] ?? '') ?></div>
+              <div class="muted"><?= h($r['client_phone'] ?? '') ?> <?= h($r['client_email'] ?? '') ?></div>
+              <?php if (!empty($r['comment'])): ?><div class="muted">💬 <?= h((string)$r['comment']) ?></div><?php endif; ?>
+            </td>
+            <td><?= h($r['service_title'] ?? '') ?></td>
+            <td><?= ($r['price_eur']!==null && $r['price_eur']!=='') ? (float)$r['price_eur'].' €' : '—' ?></td>
+            <td><span class="status"><?= h($status) ?></span></td>
+            <td>
+              <button class="btn danger act-cancel" <?=$canCancel?'':'disabled'?>>
+                Отменить
+              </button>
+              <div class="countdown"><?= $canCancel ? '' : 'Можно отменить позже' ?></div>
+            </td>
+          </tr>
+        <?php endforeach; endif; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<script>
+/* смена даты из инпута */
+document.getElementById('dInput')?.addEventListener('change', function(){
+  this.form.submit();
+});
+
+/* тик: разблокировать «Отменить» когда наступит allowAt */
+function formatLeft(sec){
+  const m = Math.floor(sec/60), s = sec%60;
+  return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+setInterval(()=>{
+  document.querySelectorAll('tr[data-allowts]').forEach(tr=>{
+    const allow = +tr.dataset.allowts;
+    const now   = Math.floor(Date.now()/1000);
+    const btn   = tr.querySelector('.act-cancel');
+    const cd    = tr.querySelector('.countdown');
+    const left  = allow - now;
+    if (left <= 0){
+      if (btn) btn.disabled = false;
+      if (cd) cd.textContent = '';
+    } else {
+      if (cd) cd.textContent = 'Можно отменить через ' + formatLeft(left);
+    }
+  });
+}, 1000);
+
+/* обработчик отмены */
+document.querySelectorAll('.act-cancel').forEach(btn=>{
+  btn.addEventListener('click', function(){
+    if (this.disabled) return;
+    const tr = this.closest('tr');
+    const id = tr.getAttribute('data-id');
+    if (!confirm('Отменить запись?')) return;
+    fetch('/staff/api.php', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ action:'set_status', id: id, status: 'cancel' })
+    }).then(r=>r.json()).then(j=>{
+      if(!j.ok){ alert(j.error||'Ошибка'); return; }
+      tr.querySelector('.status').textContent = j.status;
+    }).catch(()=>alert('Ошибка сети'));
+  });
+});
+</script>
+</body>
+</html>

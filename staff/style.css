@@ -1,0 +1,13 @@
+.modal.hidden, .backdrop.hidden { display: none; }
+.backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 40; }
+.modal { position: fixed; inset: 0; display: grid; place-items: center; z-index: 50; }
+.modal__dialog { width: min(640px, 92vw); background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.2); }
+.modal__header, .modal__footer { padding: 14px 16px; border-bottom:1px solid #eee; }
+.modal__footer { border-top:1px solid #eee; border-bottom:none; text-align:right; }
+.modal__body { padding: 16px; max-height: 60vh; overflow:auto; }
+.modal__title { font-weight: 700; font-size: 18px; }
+.modal__close { border:0; background:transparent; font-size:24px; line-height:1; cursor:pointer; }
+.kv { margin:0; }
+.kv > div { display:flex; justify-content:space-between; border-bottom:1px solid #f2f2f2; padding:10px 0; }
+.kv .k { color:#6b7280; margin-right:16px; }
+.kv .v { font-weight:600; text-align:right; }

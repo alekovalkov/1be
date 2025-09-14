@@ -1,0 +1,17 @@
+# /booking/.htaccess
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /booking/
+
+# 1) Реальные файлы/папки — отдать как есть
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2) Любые запросы с расширениями (css/js/png/woff/...) не переписывать
+RewriteCond %{REQUEST_URI} \.(?:css|js|mjs|json|map|png|jpe?g|gif|webp|svg|ico|woff2?|woff|ttf|eot)$ [NC]
+RewriteRule ^ - [L]
+
+# 3) Красивые URL: /booking/<slug>/ -> /booking/index.php?slug=<slug>
+RewriteRule ^([^/]+)/?$ index.php?slug=$1 [L,QSA]
