@@ -1,0 +1,28 @@
+<?php
+return [
+    'login' => 'Login',
+    'register' => 'Register',
+    'book_online' => 'Book Online',
+    'our_privileges' => 'Our Privileges',
+    'loyal_points' => 'Loyalty points for each visit → discounts.',
+    'manicure_from' => 'Manicure from 19 €.',
+    'choose_master' => 'Choose a master by area, price and speed.',
+    'experience' => 'Experience 8+ years.',
+    'sterilization' => 'Tool sterilization with "HIGH TEMPERATURE DRY HEAT STERILIZER MICROSTOP PROTECT PRO".',
+    'free_parking' => 'Free parking at all salons.',
+    'public_transport' => 'Convenient public transport nearby.',
+    'portfolio' => 'Masters Portfolio',
+    'reviews' => 'Customer Reviews',
+    'contacts' => 'Contacts',
+    'phone' => 'Phone',
+    'email' => 'Email',
+    'address' => 'Address',
+    'rights' => '© 2025 Salon Beauty.',
+    'languages' => 'Languages',
+    'hero_text' => 'Perfect nails, perfect you.',
+    'next' => 'Next',
+    'prev' => 'Prev',
+    'review1' => 'Very professional service and cozy atmosphere!',
+    'review2' => 'I found my favorite master here. Recommended!',
+    'review3' => 'Fast and quality manicure.'
+];
