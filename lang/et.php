@@ -1,0 +1,28 @@
+<?php
+return [
+    'login' => 'Logi sisse',
+    'register' => 'Registreeru',
+    'book_online' => 'Broneeri aeg',
+    'our_privileges' => 'Meie eelised',
+    'loyal_points' => 'Lojalsuspunktid iga külastuse eest → soodustused.',
+    'manicure_from' => 'Maniküür alates 19 €.',
+    'choose_master' => 'Vali meister piirkonna, hinna ja töökiiruse järgi.',
+    'experience' => 'Töökogemus 8+ aastat.',
+    'sterilization' => 'Tööriistade steriliseerimine aparaat "HIGH TEMPERATURE DRY HEAT STERILIZER MICROSTOP PROTECT PRO".',
+    'free_parking' => 'Tasuta parkimine kõigi salongide juures.',
+    'public_transport' => 'Lähedal mugav ühistransport.',
+    'portfolio' => 'Meistrite portfoolio',
+    'reviews' => 'Kliendiarvustused',
+    'contacts' => 'Kontaktid',
+    'phone' => 'Telefon',
+    'email' => 'E-post',
+    'address' => 'Aadress',
+    'rights' => '© 2025 Salon Beauty.',
+    'languages' => 'Keeled',
+    'hero_text' => 'Täiuslikud küüned, täiuslik sina.',
+    'next' => 'Edasi',
+    'prev' => 'Tagasi',
+    'review1' => 'Väga professionaalne teenindus ja mõnus atmosfäär!',
+    'review2' => 'Leidsin siit oma lemmikmeistri. Soovitan!',
+    'review3' => 'Kiire ja kvaliteetne maniküür.'
+];
