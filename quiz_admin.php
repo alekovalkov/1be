@@ -309,7 +309,10 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['save_all'])) {
 /* ============== VIEW HELPERS ============== */
 function intInput($name,$val,$min='0',$w=120){ return '<input type="number" step="1" min="'.h($min).'" name="'.$name.'" value="'.h((string)(is_numeric($val)?(int)$val:0)).'" style="width:'.$w.'px">'; }
 function numInput($name,$val,$step='0.1',$min='0',$w=120){ $v=(is_numeric($val)?(string)+$val:(string)$val); return '<input type="number" step="'.h($step).'" min="'.h($min).'" name="'.$name.'" value="'.h($v).'" style="width:'.$w.'px">'; }
-function textInput($name,$val,$w=420){ return '<input type="text" name="'.$name.'" value="'.h($val).'" style="width:'.$w.'px">'; }
+function textInput($name,$val,$w=420){
+  return '<input type="text" name="'.$name.'" value="'.h($val).'" '
+    .'style="max-width:'.$w.'px;width:100%;flex:1;min-width:0">';
+}
 function textarea($name,$val,$w=520,$h=70){ return '<textarea name="'.$name.'" style="width:'.$w.'px;height:'.$h.'px">'.h($val).'</textarea>'; }
 function i18nInputs($base,$valArr,$LANGS,$w=420){
   $html=''; foreach($LANGS as $L){ $val=is_array($valArr)?($valArr[$L]??''):(string)$valArr; $html.='<div class="i18n-line"><span class="tag">'.strtoupper(h($L)).'</span> '.textInput($base.'['.$L.']',$val,$w).'</div>'; }
@@ -352,7 +355,7 @@ $areas = $config['areas'];
   .opt{border:1px dashed var(--ring);border-radius:12px;padding:10px;margin:8px 0;background:#0d1330}
   .opt .hdr{display:flex;gap:10px;align-items:center;margin-bottom:8px}
   .opt code{border:1px solid var(--ring);background:#0e1430b3;border-radius:8px;padding:2px 6px}
-  .i18n-line{display:flex;gap:8px;align-items:center;margin:4px 0}
+  .i18n-line{display:flex;gap:8px;align-items:center;margin:4px 0;flex-wrap:wrap}
   .tag{display:inline-block;border:1px solid var(--ring);border-radius:8px;padding:2px 6px;background:#0e1430b3;font-size:12px}
   input[type=text],input[type=number],textarea,select{background:#0b112d;border:1px solid #243354;color:#eaf0ff;border-radius:10px;padding:8px}
   input[type=file]{color:#cdd7ff}
@@ -367,6 +370,9 @@ $areas = $config['areas'];
   details > summary{cursor:pointer;list-style:none}
   details > summary::-webkit-details-marker{display:none}
   .row.badges{display:grid;grid-template-columns:repeat(3, minmax(240px, 1fr));gap:10px}
+  .row.badges label{display:flex;align-items:center;gap:6px;cursor:pointer}
+  .row.badges .badge-inputs{margin-top:6px;display:flex;flex-direction:column;gap:4px}
+  .row.badges .badge-inputs .i18n-line{margin:0}
   @media(max-width:980px){ .row.badges{grid-template-columns:1fr} .two{grid-template-columns:1fr} }
 </style>
 </head>
@@ -539,15 +545,24 @@ $areas = $config['areas'];
                     <div class="row badges">
                       <div>
                         <label class="tiny"><input type="checkbox" name="opt_<?=$areaKey?>_<?=$stepKey?>[<?=$id?>][show_badge_price]" value="1" <?=!empty($o['show_badge_price'])?'checked':''?>> показывать «€»</label>
-                        <div class="i18n-line" style="margin-top:6px"><span class="tiny" style="min-width:160px">Текст к цене:</span> <?=i18nInputs("opt_{$areaKey}_{$stepKey}[{$id}][badge_price_note]", $o['badge_price_note'] ?? '', $LANGS, 360)?></div>
+                        <div class="badge-inputs">
+                          <span class="tiny" style="min-width:160px">Текст к цене:</span>
+                          <?=i18nInputs("opt_{$areaKey}_{$stepKey}[{$id}][badge_price_note]", $o['badge_price_note'] ?? '', $LANGS, 360)?>
+                        </div>
                       </div>
                       <div>
                         <label class="tiny"><input type="checkbox" name="opt_<?=$areaKey?>_<?=$stepKey?>[<?=$id?>][show_badge_time]" value="1" <?=!empty($o['show_badge_time'])?'checked':''?>> показывать «⏱»</label>
-                        <div class="i18n-line" style="margin-top:6px"><span class="tiny" style="min-width:160px">Текст ко времени:</span> <?=i18nInputs("opt_{$areaKey}_{$stepKey}[{$id}][badge_time_note]", $o['badge_time_note'] ?? '', $LANGS, 360)?></div>
+                        <div class="badge-inputs">
+                          <span class="tiny" style="min-width:160px">Текст ко времени:</span>
+                          <?=i18nInputs("opt_{$areaKey}_{$stepKey}[{$id}][badge_time_note]", $o['badge_time_note'] ?? '', $LANGS, 360)?>
+                        </div>
                       </div>
                       <div>
                         <label class="tiny"><input type="checkbox" name="opt_<?=$areaKey?>_<?=$stepKey?>[<?=$id?>][show_badge_points]" value="1" <?=!empty($o['show_badge_points'])?'checked':''?>> показывать «🌸»</label>
-                        <div class="i18n-line" style="margin-top:6px"><span class="tiny" style="min-width:160px">Текст к баллам:</span> <?=i18nInputs("opt_{$areaKey}_{$stepKey}[{$id}][badge_points_note]", $o['badge_points_note'] ?? '', $LANGS, 360)?></div>
+                        <div class="badge-inputs">
+                          <span class="tiny" style="min-width:160px">Текст к баллам:</span>
+                          <?=i18nInputs("opt_{$areaKey}_{$stepKey}[{$id}][badge_points_note]", $o['badge_points_note'] ?? '', $LANGS, 360)?>
+                        </div>
                       </div>
                     </div>
                   </div>
